@@ -1,0 +1,17 @@
+image: "rust:latest"
+stages:
+    - deploy
+
+before_script:
+    - rustup update
+    - echo "Updating with rustup"
+    - echo "Checking Versions"
+    - rustc --version
+    - cargo --version
+deploy:
+    stage: deploy
+    script:
+    - echo "Running cargo build"
+    - cargo build --release
+    - echo "Successfull"
+        
